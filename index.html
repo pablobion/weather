@@ -6,13 +6,39 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Document</title>
         <!-- <link rel="stylesheet" href="styles.css" /> -->
-        <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet" />
+        <!-- <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet" /> -->
+        <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet" />
     </head>
     <body>
-        <div class="bg-blue-200 text-white h-screen w-screen flex justify-center">
-            <div id="modal" class="border-8 border-black rounded-2xl w-9/12 my-20 bg-gray-200 shadow-2xl">
-                <div class="bg-contain bg-center w-full h-full rounded scale-50" style="background-image: url('./cloudy.jpg')"></div>
+      
+        <div id="background" class="bg-blue-200 text-white h-screen w-screen flex flex-col items-center">
+            <h1 class="text-6xl text-center mt-10">Florianópolis</h1>
+            <p>Previsão do tempo para hoje em Floripa!</p>
+            <button class='border-4' onclick="
+            const x = document.getElementById('kk');
+            
+             x.setAttribute('temperature', Number(x.textContent)+1)
+
+            //console.log(x.getAttribute('temperature'));
+            ">change +1</button>
+            <div id="modal" class="border-8 border-gray rounded-2xl w-9/12 h-full my-20 bg-gray-200 shadow-2xl transform translate-y-6 transition duration-1000 ease-in">
+                <div id="background-image" class="absolute bg-cover bg-cover w-full h-full rounded scale-50" style="background-image: url('./floripa1.png')"></div>
+                <div class="absolute w-full flex h-full">
+                    <div class="w-1/3 flex items-center justify-center">
+                        <div class="flex items-center justify-center">
+                            <temperature-component id='kk' temperature="5"></temperature-component>
+                            <div class="bg-gray-700 rounded-full h-12 w-12 flex items-center justify-center mb-10">
+                                <p class="text-6xl mt-4">º</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="w-2/3 pl-10">
+                        <h1 class="text-6xl">sdhnsiudh</h1>
+                    </div>
+                </div>
             </div>
         </div>
     </body>
+    <script src="changeBackground.js"></script>
+    <script src="./components/temperature.js" defer></script>
 </html>
