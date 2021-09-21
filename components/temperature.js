@@ -4,37 +4,35 @@ class Temperature extends HTMLElement {
     constructor() {
         super();
         this.build();
-
-        // const teste = this.getAttribute("celsius");
     }
 
     build() {
-                const shadow = this.attachShadow({ mode: "open" });
-                const component = this.createElement();
-                shadow.appendChild(component);
+        const shadow = this.attachShadow({ mode: "open" });
+        this.render()
     }
 
-
-    createElement() {
-        const divElement = document.createElement("div");
-        const element = document.createElement("h1");
-        element.setAttribute("style", "font-size: 8rem")
-
-        const teste = this.getAttribute("temperature");
-        element.innerText = teste;
-
-        divElement.appendChild(element);
-
-        return divElement;
+    render(){
+        this.shadowRoot.innerHTML =  
+        `
+        <div>
+            <h1 style='font-size: 7rem'>${this.temperature}</h1>
+        </div>
+        `;
     }
 
-    //     <div>
-    //     <h1 class="text-9xl z-10">4</h1>
-    // </div>
+    static get observedAttributes() {//Observando se o valor de temperatura vai mudar
+        return ['temperature'];
+    }
+      
+    attributeChangedCallback(name, oldValue, newValue) {// Caso o valor mude, automaticamente já atualiza o valor para renderizar novamente
+        this.temperature = newValue;  
+        this.render()
+    }
+
 }
 
 
 
-    customElements.define("temperature-component", Temperature);
+customElements.define("temperature-component", Temperature);
 
 
