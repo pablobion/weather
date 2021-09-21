@@ -18,3 +18,7 @@ E se for de dia mostra fundo mais claro, e de noite mais escuro e também altera
 
 
 
+![Imagem de florianópolis de dia](assets/preview.png "Floripa")
+![Imagem de florianópolis de noite](assets/preview2.png "Floripa")
+
+
